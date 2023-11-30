@@ -1,0 +1,132 @@
+body {
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #030712;
+    color: rgb(230, 237, 243);
+    display: grid;
+    height: 100vh;
+    align-items: center;
+
+}
+
+form {
+    background-color: #0f172a;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 46.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    border: 2px solid #374151;
+    border-radius: 4px;
+    box-shadow: 0px 5px 15px #ffffff0c
+}
+
+.wrapper--endereco {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper--inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .3125rem;
+}
+
+.wrapper--buttons {
+    flex-direction: row-reverse;
+    display: flex;
+    gap: .9375rem;
+}
+
+input {
+    font-family: inherit;
+    border-radius: 4px;
+    border: 1px solid #374151;
+    max-width: 20rem;
+    background-color: #010409;
+    color: rgb(230, 237, 243);
+    padding: .3125rem .75rem;
+}
+
+input:active,
+input:focus {
+    border-color: #0ea5e9;
+    outline: none;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+button {
+    background-color: #21262d;
+    border: #30363d;
+    color: rgb(230, 237, 243);
+}
+
+button[type="submit"] {
+    background-color: #15803d;
+}
+
+/* Remoção dos spinners do input number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Estilização dos botões -  */
+button {
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 3rem;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 4px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+button:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+button:focus {
+    outline: none;
+}
+
+.btn--primario {
+    background-image: linear-gradient(to right,
+            #3CA55C,
+            #B5AC49);
+    box-shadow: 0 0px 14px #4ade806b;
+}
+
+.btn--destructive {
+    background-image: linear-gradient(to right,
+            #a73737,
+            #7a2828);
+    box-shadow: 0 0px 14px #de634a6b;
+}
+
+/* Gradients */
+
+.text--grad {
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}

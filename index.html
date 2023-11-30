@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca Cep!</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        
+        <form action="sucesso.html" method="post">
+            <h1><span class="text--grad">Cadastre um endereço</span></h1>
+            <div class="wrapper--inputs">
+                <label for="cep">CEP</label>
+                <input type="number" name="cep" id="cep">
+            </div>
+
+            <div class="wrapper--endereco">
+                <div class="wrapper--inputs">
+                    <label for="uf">Estado</label>
+                    <input type="text" name="uf" id="uf">
+                </div>
+                <div class="wrapper--inputs">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" id="cidade">
+                </div>
+            </div>
+            <div class="wrapper--inputs">
+
+                <label for="bairro">Bairro</label>
+                <input type="text" name="bairro" id="bairro">
+            </div>
+
+            <div class="wrapper--endereco">
+                <div class="wrapper--inputs">
+                    <label for="rua">Rua/Avenida</label>
+                    <input type="text" name="rua" id="rua">
+                </div>
+                <div class="wrapper--inputs">
+                    <label for="num">Número</label>
+                    <input type="text" name="num" id="num">
+                </div>
+            </div>
+
+            <div class="wrapper--inputs">
+                <label for="bairro">Complemento</label>
+                <input type="text" name="bairro" id="bairro">
+            </div>
+            <div class="wrapper--buttons">
+                <button type="submit" class="btn--primario">Salvar</button>
+                <button type="reset" class="btn--destructive">Limpar</button>
+            </div>
+        </form>
+    </main>
+
+</body>
+
+</html>
