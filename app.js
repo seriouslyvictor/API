@@ -3,6 +3,7 @@ const elUF = document.querySelector("#uf");
 const elCidade = document.querySelector("#cidade");
 const elBairro = document.querySelector("#bairro");
 const elRua = document.querySelector("#rua");
+const elAlert = document.querySelector(".alerts")
 
 const buscaCep = function (e) {
   let cep = e.target.value;
@@ -27,9 +28,12 @@ const validaCep = function (e) {
   e.target.value = e.target.value.replace(/[^0-9]/g, "");
 };
 
-const erroHandler = function (error) {
-    console.log(error)
-  alert(`Algo deu errado! ${error.message}`);
+const erroHandler = function (error = "Algo deu errado!") {
+    elAlert.classList.add("show--alert")
+    elAlert.textContent = `${error.message}`
+    setTimeout(() => {
+      elAlert.classList.remove("show--alert")
+    }, 5000)
 };
 
 elCep.addEventListener("input", validaCep);

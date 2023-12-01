@@ -67,15 +67,30 @@ button[type="submit"] {
     background-color: #15803d;
 }
 
-/* Remoção dos spinners do input number */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+
+.alerts {
+    text-align: center;
+    width: 100%;
+    max-width: 46.25rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f87171;
+    color: #991b1b;
+    border-radius: 4px;
+    border: 2px solid #991b1b;
+    padding: .625rem .9375rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
+.show--alert {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
 }
 
 /* Estilização dos botões -  */
