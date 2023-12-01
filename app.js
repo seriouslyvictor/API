@@ -10,12 +10,10 @@ const buscaCep = function (e) {
   if (!cep) {
     return;
   }
-  console.log(cep);
   const url = `https://viacep.com.br/ws/${cep}/json/`;
-  console.log(url);
   fetch(url)
     .then(unpackJSON)
-    .then((data) => {
+    .then(data => {
         if (data.erro) {
             throw new Error("Cep não encontrado, verifique o número e tente novamente")
         }
@@ -36,13 +34,6 @@ const erroHandler = function (error = "Algo deu errado!") {
     }, 5000)
 };
 
-elCep.addEventListener("input", validaCep);
-elCep.addEventListener("blur", buscaCep);
-
-function teste() {
-  alert(`teste`);
-}
-
 function preencherDados(package) {
   elCep.value = package.cep;
   elUF.value = package.uf;
@@ -52,7 +43,8 @@ function preencherDados(package) {
 }
 
 function unpackJSON(response) {
-  response = response.json();
-  console.log(response);
-  return response
+  return response = response.json();
 }
+
+elCep.addEventListener("input", validaCep);
+elCep.addEventListener("blur", buscaCep);
