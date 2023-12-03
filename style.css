@@ -22,16 +22,55 @@ form {
     box-shadow: 0px 5px 15px #ffffff0c
 }
 
+
 .wrapper--endereco {
     display: flex;
     justify-content: space-between;
 }
 
+
+.loader {
+    top: 50%;
+    right: -36px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: none;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(0, 47, 255, 0.2) 33%,#0ea5e9 100%);
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #030712;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
 .wrapper--inputs {
-    width: 100%;
+    width: 20rem;
     display: flex;
     flex-direction: column;
     gap: .3125rem;
+    position: relative;
 }
 
 .wrapper--buttons {
@@ -55,6 +94,11 @@ input:focus {
     border-color: #0ea5e9;
     outline: none;
     box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+input:disabled {
+    background-color: #374151;
+    color: #777;
 }
 
 button {

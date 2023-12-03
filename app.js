@@ -3,23 +3,35 @@ const elUF = document.querySelector("#uf");
 const elCidade = document.querySelector("#cidade");
 const elBairro = document.querySelector("#bairro");
 const elRua = document.querySelector("#rua");
-const elAlert = document.querySelector(".alerts")
+const elAlert = document.querySelector(".alerts");
+const elLoader = document.querySelector(".loader");
 
 const buscaCep = function (e) {
   let cep = e.target.value;
+  elLoader.style.display = "inline-block";
   if (!cep) {
+    elLoader.style.display = "none";
     return;
   }
-  const url = `https://viacep.com.br/ws/${cep}/json/`;
-  fetch(url)
+  const request = fetch(`https://viacep.com.br/ws/${cep}/json/`);
+  request
     .then(unpackJSON)
-    .then(data => {
-        if (data.erro) {
-            throw new Error("Cep não encontrado, verifique o número e tente novamente")
-        }
+    .then((data) => {
+      if (data.erro) {
+        throw new Error(
+          "Cep não encontrado, verifique o número e tente novamente"
+        );
+      }
+      desabilitarForms(true);
       preencherDados(data);
     })
-    .catch(erroHandler);
+    .catch(erroHandler)
+    .finally(() => {
+      setTimeout(() => {
+        desabilitarForms(false);
+        elLoader.style.display = "none";
+      }, 1000);
+    });
 };
 
 const validaCep = function (e) {
@@ -27,11 +39,11 @@ const validaCep = function (e) {
 };
 
 const erroHandler = function (error = "Algo deu errado!") {
-    elAlert.classList.add("show--alert")
-    elAlert.textContent = `${error.message}`
-    setTimeout(() => {
-      elAlert.classList.remove("show--alert")
-    }, 5000)
+  elAlert.classList.add("show--alert");
+  elAlert.textContent = `${error.message}`;
+  setTimeout(() => {
+    elAlert.classList.remove("show--alert");
+  }, 5000);
 };
 
 function preencherDados(package) {
@@ -43,7 +55,18 @@ function preencherDados(package) {
 }
 
 function unpackJSON(response) {
-  return response = response.json();
+  if (!response.ok) {
+    throw new Error(`Erro de conexão`);
+  }
+  return (response = response.json());
+}
+
+function desabilitarForms(state) {
+  elCep.disabled = state;
+  elUF.disabled = state;
+  elCidade.disabled = state;
+  elBairro.disabled = state;
+  elRua.disabled = state;
 }
 
 elCep.addEventListener("input", validaCep);
